@@ -1,7 +1,7 @@
 ﻿#include <stdexcept>
 #include <cmath>
 #include <iostream>
-
+using namespace std;
 class PrimeNumber {
 private:
     int value;
@@ -27,17 +27,17 @@ public:
     }
 };
 
-class InvalidPrimeNumberException : public std::invalid_argument {
+class InvalidPrimeNumberException : public invalid_argument {
 private:
     int invalidValue;
 
 public:
-    InvalidPrimeNumberException(int value) : std::invalid_argument("Invalid prime number"), invalidValue(value) {}
+    InvalidPrimeNumberException(int value) : invalid_argument("Invalid prime number"), invalidValue(value) {}
 
     // Метод для печати всех данных
     void printDetails() const {
-        std::cout << "Invalid value: " << invalidValue << std::endl;
-        std::cout << "Reason: " << what() << std::endl;
+        cout << "Invalid value: " << invalidValue << endl;
+        cout << "Reason: " << what() << endl;
     }
 };
 
@@ -45,11 +45,11 @@ int main() {
     try {
         // Создание объекта с простым числом
         PrimeNumber prime(7);
-        std::cout << "Created prime number object with value: 7" << std::endl;
+        cout << "Created prime number object with value: 7" << endl;
 
         // Создание объекта с непростым числом
         PrimeNumber invalidPrime(4);
-        std::cout << "Created prime number object with value: 4" << std::endl;
+        cout << "Created prime number object with value: 4" << endl;
     }
     catch (const InvalidPrimeNumberException& e) {
         // Обработка исключения
